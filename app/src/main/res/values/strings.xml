@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ActivityLifeCycles</string>
-    <string name="guess_name">Guess Name</string>
+    <string name="guess_name">Enter a Text</string>
     <string name="enter_text">ENTER</string>
     <string name="show_guess_text"></string>
 </resources>

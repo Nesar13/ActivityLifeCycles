@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private Button enterButton;
@@ -18,16 +19,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         enterButton = findViewById(R.id.enter_button);
-        enterGuess= findViewById(R.id.name_text);
+        enterGuess = findViewById(R.id.name_text);
 
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String guess=enterGuess.getText().toString().trim();;
+
+                String guess = enterGuess.getText().toString().trim();
+
+                if (!guess.isEmpty()){
+
+                    Intent intent = new Intent(MainActivity.this, ShowGuess.class);
+                    intent.putExtra("Nesar", guess);
+                    startActivity(intent); //order matters
+
+                } else {
+                    Toast.makeText(MainActivity.this, "Enter a text please", Toast.LENGTH_LONG).show();
+                }
                 //allows you to switch between pages
-                Intent intent = new Intent(MainActivity.this, ShowGuess.class);
-                intent.putExtra("Nesar", "Hello there!");
-                startActivity(intent); //order matters
+
 
                 // Alternatively: startActivity(new Intent(MainActivity.this,ShowGuess.class));
 
