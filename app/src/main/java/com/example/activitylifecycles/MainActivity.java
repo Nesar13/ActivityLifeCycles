@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         enterButton = findViewById(R.id.enter_button);
         enterGuess = findViewById(R.id.name_text);
 
+
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(MainActivity.this, ShowGuess.class);
                     intent.putExtra("Nesar", guess);
+                    intent.putExtra("James", "Bond");
+                    intent.putExtra("Aaron", 25);
+
                     startActivity(intent); //order matters
 
                 } else {

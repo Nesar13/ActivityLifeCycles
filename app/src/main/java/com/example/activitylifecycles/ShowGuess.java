@@ -3,6 +3,7 @@ package com.example.activitylifecycles;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class ShowGuess extends AppCompatActivity {
@@ -15,13 +16,25 @@ public class ShowGuess extends AppCompatActivity {
         setContentView(R.layout.activity_show_guess);
 
         showGuessText = findViewById(R.id.received_text);
+        Bundle getValues=getIntent().getExtras();
 
-        if ((getIntent().getStringExtra("Nesar") != null)) {
-            String name = getIntent().getStringExtra("Nesar");
+//        Bundle getValues=getIntent().getExtras(); //
 
-            showGuessText.setText(name);
-
+        if (getValues != null){
+            
+            //had to use String.valueOf(int)
+            showGuessText.setText(String.valueOf(getValues.getInt("Aaron"))); // another way of doing getIntent().getStringExtra("Nesar)"
+            Log.d("Extra 1", "onCreate: "+ getValues.getString("Nesar"));
+            Log.d("Extra 2", "onCreate: "+ getValues.getString("James"));
 
         }
+
+//        if ((getIntent().getStringExtra("Nesar") != null)) {
+//            String name = getIntent().getStringExtra("Nesar");
+//
+//            showGuessText.setText(name);
+//
+//
+//        }
     }
 }
