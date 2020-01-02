@@ -1,5 +1,6 @@
 package com.example.activitylifecycles;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private Button enterButton;
     private EditText enterGuess;
+    private final int REQUEST_CODE=2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("James", "Bond");
                     intent.putExtra("Aaron", 25);
 
-                    startActivity(intent); //order matters
+//                    startActivity(intent); //order matters
+                    startActivityForResult(intent, REQUEST_CODE); //starts activity but also listens for data
 
                 } else {
                     Toast.makeText(MainActivity.this, "Enter a text please", Toast.LENGTH_LONG).show();
@@ -43,9 +47,24 @@ public class MainActivity extends AppCompatActivity {
                 //allows you to switch between pages
 
 
+
                 // Alternatively: startActivity(new Intent(MainActivity.this,ShowGuess.class));
 
             }
         });
+
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode==REQUEST_CODE) {
+
+            assert data != null;
+            String message=data.getStringExtra("message_back");
+                Toast.makeText(MainActivity.this, message, Toast.
+                        LENGTH_LONG).show();
+
+        }
     }
 }
