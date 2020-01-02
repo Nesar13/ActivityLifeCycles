@@ -16,14 +16,16 @@ public class ShowGuess extends AppCompatActivity {
         setContentView(R.layout.activity_show_guess);
 
         showGuessText = findViewById(R.id.received_text);
+
+        //Bundle is a way to map String keys, retrieving data
         Bundle getValues=getIntent().getExtras();
 
 //        Bundle getValues=getIntent().getExtras(); //
 
         if (getValues != null){
-            
+
             //had to use String.valueOf(int)
-            showGuessText.setText(String.valueOf(getValues.getInt("Aaron"))); // another way of doing getIntent().getStringExtra("Nesar)"
+            showGuessText.setText(String.valueOf(getValues.getInt("Aaron"))); // using Bundle, another way of doing getIntent().getStringExtra("Nesar)"
             Log.d("Extra 1", "onCreate: "+ getValues.getString("Nesar"));
             Log.d("Extra 2", "onCreate: "+ getValues.getString("James"));
 
