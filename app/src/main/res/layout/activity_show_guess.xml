@@ -10,10 +10,11 @@
         android:id="@+id/received_text"
         android:layout_width="199dp"
         android:layout_height="34dp"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="324dp"
         android:text="@string/show_guess_text"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.669"
+        app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
